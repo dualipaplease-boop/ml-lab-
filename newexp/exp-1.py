@@ -10,6 +10,7 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.linear_model import LinearRegression, SGDRegressor
+from sklearn.preprocessing import StandardScaler
 
 # Load dataset
 data = fetch_california_housing(as_frame=True)
@@ -49,15 +50,6 @@ sgd.fit(X_train_sc, y_train)
 y_pred_sgd = sgd.predict(X_test_sc)
 mse_sgd = mean_squared_error(y_test, y_pred_sgd)
 print(f'SGD Regressor => MSE={mse_sgd:.4f} RMSE={mse_sgd**0.5:.4f} R2={r2_score(y_test, y_pred_sgd):.4f}')
-
-# Plot cost convergence (adapted for SGD)
-plt.figure(figsize=(8, 4))
-plt.plot(range(sgd.n_iter_), sgd.losses_, label='SGD Cost', color='crimson')
-plt.title('Cost Function Convergence (SGD Regressor)')
-plt.xlabel('Iterations')
-plt.ylabel('MSE Cost')
-plt.legend()
-plt.show()
 
 # Plot fitted line comparison
 plt.figure(figsize=(8, 4))

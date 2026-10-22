@@ -47,7 +47,7 @@ for k in k_values:
     silhouettes.append(sil)
 
 # Choose optimal K (max silhouette score vs original "elbow + K=5")
-optimal_k = k_values[np.argmax(silhouettes) + 2]  # +2 because k_values starts at 2
+optimal_k = k_values[np.argmax(silhouettes)]  # direct index mapping - k_values starts at 2
 # Fallback to K=5 if silhouette detection is unreliable
 if optimal_k < 2 or optimal_k > 10:
     optimal_k = 5
