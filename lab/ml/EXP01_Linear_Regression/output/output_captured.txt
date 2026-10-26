@@ -1,0 +1,46 @@
+California Housing Dataset
+Shape: (20640, 8), (20640,)
+Features: ['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population', 'AveOccup', 'Latitude', 'Longitude']
+[4.526 3.585 3.521 3.413 3.422]
+
+Linear Regression (Single Variable - MedIncome):
+Coefficient: 0.4193
+Intercept: 0.4446
+Mean Squared Error: 0.7091
+R2 Score: 0.4589
+Traceback (most recent call last):
+  File "/home/karan/Desktop/tmp/lab/ml/EXP01_Linear_Regression/code/main.py", line 50, in <module>
+    plt.savefig('../output/plot.png', dpi=150, bbox_inches='tight')
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karan/Desktop/tmp/lab/ml/environment/.venv/lib/python3.14/site-packages/matplotlib/pyplot.py", line 1346, in savefig
+    res = fig.savefig(fname, **kwargs)  # type: ignore[func-returns-value]
+  File "/home/karan/Desktop/tmp/lab/ml/environment/.venv/lib/python3.14/site-packages/matplotlib/figure.py", line 3515, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/karan/Desktop/tmp/lab/ml/environment/.venv/lib/python3.14/site-packages/matplotlib/backend_bases.py", line 2289, in print_figure
+    result = print_method(
+        filename,
+    ...<3 lines>...
+        bbox_inches_restore=_bbox_inches_restore,
+        **kwargs)
+  File "/home/karan/Desktop/tmp/lab/ml/environment/.venv/lib/python3.14/site-packages/matplotlib/backend_bases.py", line 2146, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ~~~~^
+        *args, **{k: v for k, v in kwargs.items() if k not in skip}))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karan/Desktop/tmp/lab/ml/environment/.venv/lib/python3.14/site-packages/matplotlib/backends/backend_agg.py", line 537, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karan/Desktop/tmp/lab/ml/environment/.venv/lib/python3.14/site-packages/matplotlib/backends/backend_agg.py", line 486, in _print_pil
+    mpl.image.imsave(
+    ~~~~~~~~~~~~~~~~^
+        filename_or_obj, self.buffer_rgba(), format=fmt, origin="upper",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dpi=self.figure.dpi, metadata=metadata, pil_kwargs=pil_kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karan/Desktop/tmp/lab/ml/environment/.venv/lib/python3.14/site-packages/matplotlib/image.py", line 1729, in imsave
+    image.save(fname, **pil_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/karan/Desktop/tmp/lab/ml/environment/.venv/lib/python3.14/site-packages/PIL/Image.py", line 2706, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: '../output/plot.png'
