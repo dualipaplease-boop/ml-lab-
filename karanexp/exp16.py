@@ -49,3 +49,12 @@ ax2.grid()
 
 plt.tight_layout()
 plt.show()
+
+
+
+
+# Comparison
+print("\nK-Means Strengths: Fast, efficient, and scalable.")
+print("K-Means Weaknesses: Requires K in advance and is sensitive to outliers.")
+print("Agglomerative Strengths: Reveals hierarchical relationships between clusters.")
+print("Agglomerative Weaknesses: Computationally expensive and cannot undo merges.")
