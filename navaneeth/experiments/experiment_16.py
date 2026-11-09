@@ -20,7 +20,7 @@ kmeans = KMeans(n_clusters=5, random_state=42, n_init=10)
 y_means = kmeans.fit_predict(X_scaled)
 
 # Agglomerative clustering
-hc = AgglomerativeClustering(n_clusters=5)
+hc = AgglomerativeClustering(n_clusters=5)1
 y_hc = hc.fit_predict(X_scaled)
 
 # Evaluation metrics

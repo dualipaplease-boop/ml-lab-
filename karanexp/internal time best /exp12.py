@@ -34,7 +34,7 @@ for kernel in ['linear', 'poly', 'rbf']:
         f1_score(y_test, pred, average='macro') * 100,
         elapsed
     ])
-
+    
 df = pd.DataFrame(results, columns=[
     'Kernel', 'Accuracy', 'Precision', 'Recall', 'F1-score', 'Time'
 ])

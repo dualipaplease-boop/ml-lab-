@@ -15,14 +15,14 @@ int main(){
     server.sin_family=AF_INET;
     server.sin_port=htons(8089);
     server.sin_addr.s_addr=inet_addr("127.0.0.1");
-    char buffer[1000],resul[1000];
+    char buffer[100],resul[1000];
     sprintf(resul,"%s","hello idc hello");
 printf("adsadad%s",resul);
 
 
 
     sendto(sock , resul , strlen(resul) , 0 , (struct sockaddr *) &server ,lenser );
-    int n = recvfrom(sock, buffer, sizeof(buffer)+1, 0 ,( struct sockaddr *) &server, &lenser);
+    int n = recvfrom(sock, buffer, sizeof(buffer), 0 ,( struct sockaddr *) &server, &lenser);
 
 
 printf("dasdasda \n\n%s",buffer);

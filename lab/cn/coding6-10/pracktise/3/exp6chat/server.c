@@ -26,8 +26,9 @@ printf("vdsvafas %s\n",buffer);
     printf("vdsvafas%s\n",buffer);
 int i=0;
 char tmp[100];
-    while(sscanf( buffer + i ,"%s" , tmp) ==1){
-        if(strcmp(tmp,"idc")==0){
+    while(sscanf( buffer + i ,"%s" , tmp) != 0){
+        printf("%s\n",tmp);
+        if(strcmp(tmp,"idc") == 0){
             strcat(resul,"i dont care");
             strcat(resul," ");
         }else{
@@ -41,7 +42,7 @@ char tmp[100];
 
 
 printf("%s",resul);
-    sendto(sock , resul , strlen(resul)-1, 0 , (struct sockaddr *) &client, lencli);
+    sendto(sock , resul , strlen(resul)+1, 0 , (struct sockaddr *) &client, lencli);
 
 
 }

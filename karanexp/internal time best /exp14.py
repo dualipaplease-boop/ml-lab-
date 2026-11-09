@@ -6,8 +6,10 @@ import matplotlib.pyplot as plt
 import time
 
 # Load and preprocess MNIST
-X, y = fetch_openml('mnist_784', version=1, return_X_y=True,
-                    as_frame=False, parser='auto')
+X, y = fetch_openml(
+    'mnist_784', version=1, return_X_y=True,
+    as_frame=False, parser='auto'
+)
 X, y = X[:30000] / 255.0, y[:30000]
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -16,8 +18,10 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Compare activation functions
 for act in ['logistic', 'relu', 'tanh']:
-    model = MLPClassifier(hidden_layer_sizes=(128, 64),
-                          activation=act, random_state=42)
+    model = MLPClassifier(
+        hidden_layer_sizes=(128, 64),
+        activation=act, max_iter=30, random_state=42
+    )
 
     start = time.time()
     model.fit(X_train, y_train)
@@ -25,7 +29,8 @@ for act in ['logistic', 'relu', 'tanh']:
     accuracy = model.score(X_test, y_test) * 100
 
     print(f'{act}: Time={elapsed:.2f}s, '
-          f'Accuracy={accuracy:.2f}%, Iterations={model.n_iter_}')
+          f'Accuracy={accuracy:.2f}%, '
+          f'Iterations={model.n_iter_}')
 
     plt.plot(model.loss_curve_, label=act)
 
